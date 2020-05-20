@@ -26,5 +26,5 @@ public abstract class Block {   // blocks: rectangle|| doing, triangle|| plainin
     }
 
     // done rectangle hit by ball   // TODO: ball reboundence
-    public abstract void minusNum(ball b);
+    public abstract void minusNum(Ball b);
 }
