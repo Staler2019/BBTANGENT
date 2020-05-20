@@ -1,3 +1,4 @@
+// P.Y. copyright
 package game;
 
 import java.net.URL;
@@ -10,11 +11,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class game extends Application implements Initializable {
+public class Game extends Application implements Initializable {
     // writing fxml setting
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource(".fxml")); // TODO: Making .fxml
+        Parent root = FXMLLoader.load(getClass().getResource(".fxml")); // TODO: making .fxml
         primaryStage.setTitle("BBTANGENT Game");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
@@ -22,6 +23,10 @@ public class game extends Application implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+    }
+
+    public void shoot() {
 
     }
 
