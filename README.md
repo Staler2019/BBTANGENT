@@ -4,8 +4,7 @@
 
 ## Author
 name: 楊佳峻<br/>
-student ID: 108502571<br/>
-class: B
+class: B<br/>
 
 ## Framework
 | Package | Class |
@@ -26,19 +25,19 @@ class: B
 
 ## Documentary
 ### v1.0.0  initialization
-2020/05/16 1. initialization of MAIN: game OTHERS: ball, block
-           2. create README.md and the assets folder
+2020/05/16 1. initialization of MAIN: game OTHERS: ball, block<br/>
+           2. create README.md and the assets folder<br/>
 
-2020/05/18 1. rectangle inherit abstract block
-           2. create some member and member functions
+2020/05/18 1. rectangle inherit abstract block<br/>
+           2. create some member and member functions<br/>
 
-2020/05/19 1. global variable manager class: "global"
+2020/05/19 1. global variable manager class: "global"<br/>
 ---
 ### v1.0.1 rename class name
-2020/05/20 1. class' first letter turn into capital
-           2. create some "Block" members
-           3. "Triangle" inherit abstract "Block"
-           4. totally 13 TODOs
+2020/05/20 1. class' first letter turn into capital<br/>
+           2. create some "Block" members<br/>
+           3. "Triangle" inherit abstract "Block"<br/>
+           4. totally 13 TODOs<br/>
 ---
 ### v1.1.0 finish declarations of members and member functions
 ---
