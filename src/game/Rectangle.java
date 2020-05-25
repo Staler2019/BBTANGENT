@@ -1,4 +1,7 @@
-// P.Y. copyright
+/********************************
+ *	P.Y. copyright	 			*
+ *	Class inherits Block	   	*
+ ********************************/
 package game;
 
 public class Rectangle extends Block {

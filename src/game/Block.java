@@ -1,4 +1,7 @@
-// P.Y. copyright
+/********************************
+ *	P.Y. copyright	 			*
+ *	Abstract Class Block        *
+ ********************************/
 package game;
 
 public abstract class Block {   // blocks: rectangle|| doing, triangle|| plaining, 1/4circle|| plaining
@@ -19,7 +22,7 @@ public abstract class Block {   // blocks: rectangle|| doing, triangle|| plainin
     public int getPosi_y() {return this.posi_y;}
 
     // move downward directly without using setPosi
-    public void nextLevel() {this.posi_y-=50;}
+    public void nextLevel() {this.posi_y -= 50;}
 
     public static void generateBlock() {
 
