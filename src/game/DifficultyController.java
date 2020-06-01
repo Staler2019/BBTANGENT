@@ -1,3 +1,7 @@
+/********************************
+ *	P.Y. copyright	 			*
+ *	Difficulty Selector        	*
+ ********************************/
 package game;
 
 import java.io.IOException;
@@ -10,7 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
-public class Difficulty implements Initializable{
+public class DifficultyController implements Initializable{   // TODO: finish
 
     public void turnToGame() throws IOException {
         Parent game = FXMLLoader.load(getClass().getResource("../../assets/fxmls/GameScene.fxml"));

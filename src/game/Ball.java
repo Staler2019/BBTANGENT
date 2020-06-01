@@ -1,31 +1,40 @@
 /********************************
  *	P.Y. copyright	 			*
  *	Class Ball        		   	*
+ *	Status: finished        	*
  ********************************/
 package game;
 
-public class Ball { //TODO: 分身問題
-    private int num;
-    private double dir_x, dir_y;
-    private double posi_x, posi_y;
+import javafx.scene.image.ImageView;
 
-    public Ball() {
-        posi_x = ; // TODO: initialize position
-        posi_y = ; // TODO: find buttom pixel for y
-        num = 1;
+public class Ball {
+    private double dir_x, dir_y;
+    public ImageView imageView;
+
+    public Ball(ImageView image) { // x between 45 to 330; y between 45 to 750
+        this.imageView = image;
     }
 
-    public int getNum() {return this.num;}
-    public double getDir_x() {return this.dir_x;}
-    public double getDir_y() {return this.dir_y;}
-    public double revDir_x() {
+    public void setDirection(double x, double y) {
+        this.dir_x = x;
+        this.dir_y = y;
+    }
+
+    public double getDirX() {
+        return this.dir_x;
+    }
+
+    public double getDirY() {
+        return this.dir_y;
+    }
+
+    public double revertX() {
         this.dir_x *= (-1);
         return this.dir_x;
     }
-    public double revDir_y() {
+
+    public double revertY() {
         this.dir_y *= (-1);
         return this.dir_y;
     }
-    public double getPosi_x() {return this.posi_x;}
-    public double getPosi_y() {return this.posi_y;}
 }

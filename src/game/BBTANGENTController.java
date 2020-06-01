@@ -18,12 +18,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BBTANGENT extends Application implements Initializable {
+public class BBTANGENTController extends Application implements Initializable { // TODO: finish
     public static Stage currStage;
     public static Scene startScene;
 
     @FXML
 
+    // TODO: add hight score to this
     @Override
     public void start(Stage primaryStage) throws Exception {
         currStage = primaryStage;

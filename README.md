@@ -13,7 +13,7 @@ class: B
 
 | Package | Class |
 | ------- | ------------------------------- |
-| Game | Game<br/>Ball<br/>Block<br/>Global |
+| Game | GameController<br/>DifficultyController<br/>BBTANGENTController<br/>Ball(finished)<br/>Block<br/>Global |
 ---
 | Class | SubClass |
 | ----- | ---------------------- |
@@ -56,9 +56,21 @@ class: B
 
 ### v1.0.2 make up sceneControllers
 
+2020/05/26
+
 1. problem with balls' 分身問題
 2. establish playerData to store highestScorePlayer and its score
 3. launcher change to BBTANGENT.java
+
+### v1.0.3 finish class Ball's things
+
+2020/06/01
+
+1. finish class Ball's
+2. make up Timeline in GameController to manage Balls' movement(with no consideration with blocks)
+3. edit FXMLs
+4. rename controllers
+5. add status of classes now to see if edits needed
 
 ### v1.1.0 finish declarations of members and member functions
 
