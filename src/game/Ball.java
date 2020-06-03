@@ -11,8 +11,8 @@ public class Ball {
     private double dir_x, dir_y;
     public ImageView imageView;
 
-    public Ball(ImageView image) { // x between 45 to 330; y between 45 to 750
-        this.imageView = image;
+    public Ball(ImageView imageview) { // x between 45 to 330; y between 45 to 750
+        this.imageView = imageview;
     }
 
     public void setDirection(double x, double y) {

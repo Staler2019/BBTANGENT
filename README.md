@@ -13,7 +13,7 @@ class: B
 
 | Package | Class |
 | ------- | ------------------------------- |
-| Game | GameController<br/>DifficultyController<br/>BBTANGENTController<br/>Ball(finished)<br/>Block<br/>Global |
+| Game | GameController<br/>DifficultyController(fin)<br/>BBTANGENTController(fin)<br/>Ball(in consideration)<br/>Block<br/>Global |
 ---
 | Class | SubClass |
 | ----- | ---------------------- |
@@ -22,10 +22,13 @@ class: B
 (undone modifying)
 | Class | Member |
 | ----- | ------ |
-| game | -public void start<br/>-public void initialize<br/><br/>-public void shoot<br/>-public static void main |
-| ball | +private int num<br/>+private double dir_x<br/>+private double dir_y<br/>+private double posi_x<br/>+private double posi_y<br/><br/>-public ball<br/>-public int getNum<br/>-public double getDir_x<br/>-public double getDir_y |
-| block | + protected int num<br/>+private int level<br/><br/>-public block<br/><br/>-public void addLevel<br/>-public int getLevel |
-| -rectangle |  |
+| BBTANGENTController | -public static Stage currStage<br/>-public static Scene startScene<br/>-@FXML private AnchorPane _start_pane<br/>-@FXML private Label _tap_word<br/>-@FXML private Button _info_btn<br/>-@FXML private GridPane _score_pane<br/>-@FXML private Label _title<br/>-@FXML private Label _scoreboard<br/><br/>+public static void main(String[] args)<br/><br/>+@Override public void initialize(URL arg0, ResourceBundle arg1)<br/>+@Override public void start(Stage primaryStage)<br/>+@FXML public void onStartPressed()<br/>+@FXML public void checkEnterPressed(KeyEvent k)<br/>@FXML public void onInfoPressed()<br/>@FXML public void onHyperPressed()[UNIMPLEMENTED]<br/> - problem: controllerClass, press link to outside browser |
+| DifficultyController | -@FXML private Button diff_1<br/>-@FXML private Button diff_2<br/>-@FXML private Button diff_3<br/><br/>+@Override public void initialize(URL arg0, ResourceBundle arg1)<br/>+public void turnToGame()<br/>+@FXML public void diff_1Pressed()<br/>+@FXML public void diff_2Pressed()[UNIMPLEMENTED]<br/>+@FXML public void diff_3Pressed()[UNIMPLEMENTED] |
+| GameController |  |
+| Ball | -private double dir_x<br/>-private double dir_y<br/>-public ImageView imageView<br/><br/>-public Ball(ImageView image)<br/><br/>-public void setDirection(double x, double y)<br/>-public double getDirX()<br/>-public double getDirY()<br/>-public double revertX()<br/>-public double revertY() |
+| Block |  |
+| +Rectangle |  |
+| +Triangle |  |
 
 ## Documentary
 
@@ -71,6 +74,13 @@ class: B
 3. edit FXMLs
 4. rename controllers
 5. add status of classes now to see if edits needed
+
+### v1.0.4 finish class BBTANGENTController, DifficultyController
+
+1. finish class BBTANGENTController and test ok
+2. attempt to make balls and block drawing instead of using ImageView
+3. finish class DifficultyController and test ok
+4. difficulty system isn't implemented
 
 ### v1.1.0 finish declarations of members and member functions
 

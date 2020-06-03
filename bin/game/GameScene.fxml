@@ -20,7 +20,7 @@
       </GridPane>
       <ImageView fx:id="_ball" fitHeight="25.0" fitWidth="25.0" layoutX="330.0" layoutY="750.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="_pause" fitHeight="45.0" fitWidth="45.0" onMouseClicked="#onPausePressed" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="_level" cache="true" layoutX="173.0" layoutY="9.0" text="Level 0">
+      <Label fx:id="_level" cache="true" layoutX="168.0" layoutY="9.0" text="Level 0">
          <font>
             <Font size="18.0" />
          </font>
