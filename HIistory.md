@@ -64,6 +64,7 @@
 6. add the assets "pause"
 7. change the class Rectangle to Square
 8. decide use ImageView rather than drawing the ball
+9. add class ControlMenuSceneController.java and ControllerMenuScene.fxml
 
 ## v1.1.0 finish declarations of members and member functions
 
