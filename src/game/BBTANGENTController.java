@@ -19,7 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-//import javafx.scene.control.Hyperlink; //TODO: later
+//import javafx.scene.control.Hyperlink; //TODO: hyperlink isn't implemented'
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -28,7 +28,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 
-public class BBTANGENTController extends Application implements Initializable { // TODO: finish
+public class BBTANGENTController extends Application implements Initializable {
     public static Stage currStage;
     public static Scene startScene;
 
@@ -39,7 +39,7 @@ public class BBTANGENTController extends Application implements Initializable { 
     @FXML private Label _title; // unused
     @FXML private Label _scoreboard;
 
-    //@FXML private Hyperlink _info_hyper;// TODO: latter
+    //@FXML private Hyperlink _info_hyper;
 
 
     public static void main(String[] args) {
@@ -87,10 +87,10 @@ public class BBTANGENTController extends Application implements Initializable { 
             _score_pane.setLayoutX(102 - 5 * scoreTextLonger);
             _score_pane.setPrefWidth(195 + 10 * scoreTextLonger);
             _scoreboard.setLayoutX(113 - 5 * scoreTextLonger);
+            _scoreboard.setText(scoreText);
         }
     }
 
-    // TODO: add hight score to this
     @Override
     public void start(Stage primaryStage) throws Exception {
         currStage = primaryStage;
@@ -142,6 +142,6 @@ public class BBTANGENTController extends Application implements Initializable { 
     }
 
     //@FXML
-    //public void onHyperPressed() {} // TODO: later
+    //public void onHyperPressed() {}
 
 }

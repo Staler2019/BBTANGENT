@@ -16,7 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
-public class DifficultyController implements Initializable{   // TODO: finish
+public class DifficultyController implements Initializable{
 
     @FXML private Button diff_1; // unused
     @FXML private Button diff_2;
