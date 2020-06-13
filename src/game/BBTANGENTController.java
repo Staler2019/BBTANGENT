@@ -32,14 +32,20 @@ public class BBTANGENTController extends Application implements Initializable {
     public static Stage currStage;
     public static Scene startScene;
 
-    @FXML private AnchorPane _start_pane;
-    @FXML private Label _tap_word; // unused
-    @FXML private Button _info_btn; // unused
-    @FXML private GridPane _score_pane;
-    @FXML private Label _title; // unused
-    @FXML private Label _scoreboard;
+    @FXML
+    private AnchorPane _start_pane;
+    @FXML
+    private Label _tap_word; // unused
+    @FXML
+    private Button _info_btn; // unused
+    @FXML
+    private GridPane _score_pane;
+    @FXML
+    private Label _title; // unused
+    @FXML
+    private Label _scoreboard;
 
-    //@FXML private Hyperlink _info_hyper;
+    // @FXML private Hyperlink _info_hyper;
 
 
     public static void main(String[] args) {
@@ -54,7 +60,7 @@ public class BBTANGENTController extends Application implements Initializable {
                 // read data
                 Scanner dataReader = new Scanner(playerData);
                 String a = dataReader.nextLine();
-                if (!a.equals("")) {
+                if (!a.equals("") && !a.equals("highestScorePlayer: ")) {
                     Global.storeHSName(a.split(" ")[1]);
                     a = dataReader.nextLine();
                     Global.storeHS(Integer.valueOf(a.split(" ")[1]));
@@ -73,23 +79,25 @@ public class BBTANGENTController extends Application implements Initializable {
         launch(args);
     }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        String scoreText = "Highest: ";
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		String scoreText = "Highest: ";
         int scoreTextLonger = 0;
         if(Global.getHSName().equals("")){
             _scoreboard.setVisible(false);
             _score_pane.setVisible(false);
         }
         else {
-            scoreText += String.valueOf(Global.getHS()) + Global.getHSName();
+            scoreText += String.valueOf(Global.getHS()) + ", " + Global.getHSName();
             scoreTextLonger = scoreText.length() - 20;
             _score_pane.setLayoutX(102 - 5 * scoreTextLonger);
             _score_pane.setPrefWidth(195 + 10 * scoreTextLonger);
             _scoreboard.setLayoutX(113 - 5 * scoreTextLonger);
             _scoreboard.setText(scoreText);
+            _scoreboard.setVisible(true);
+            _score_pane.setVisible(true);
         }
-    }
+	}
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -103,7 +111,8 @@ public class BBTANGENTController extends Application implements Initializable {
         currStage.setScene(startScene);
         currStage.show();
     }
-//****************************************************************
+
+    // ****************************************************************
     @FXML
     public void onStartPressed() throws IOException { // select difficulty
         Parent diff = FXMLLoader.load(getClass().getResource("DifficultyScene.fxml"));
@@ -114,16 +123,17 @@ public class BBTANGENTController extends Application implements Initializable {
 
     @FXML
     public void checkEnterPressed(KeyEvent k) throws IOException {
-        if(k.getCode() == KeyCode.ENTER) {
+        if (k.getCode() == KeyCode.ENTER) {
             onStartPressed();
-        }
-        else if(k.getCode() == KeyCode.F1) {
+        } else if (k.getCode() == KeyCode.F1) {
             Global.setDifficulty(1);
 
             Parent game = FXMLLoader.load(getClass().getResource("GameScene.fxml"));
             Scene gameScene = new Scene(game);
             gameScene.getRoot().requestFocus();
             BBTANGENTController.currStage.setScene(gameScene);
+        } else if (k.getCode() == KeyCode.F2) {
+            GameController.endGame();
         }
     }
 
@@ -141,7 +151,8 @@ public class BBTANGENTController extends Application implements Initializable {
         currStage.getScene().getRoot().requestFocus();
     }
 
-    //@FXML
-    //public void onHyperPressed() {}
+
+    // @FXML
+    // public void onHyperPressed() {}
 
 }

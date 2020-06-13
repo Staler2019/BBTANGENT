@@ -1,7 +1,7 @@
 /********************************
  *	P.Y. copyright	 			*
  *	Class inherits Block	   	*
- *	Status: processing	      	*
+ *	Status: finished	      	*
  ********************************/
 package game;
 
@@ -14,13 +14,25 @@ public class Square extends Block {
     }
 
     @Override
-    public void minusNum(Ball b) { // "this" is block  // TODO: ball reboundence
-        this.getPosi_y()-b.getPosi_y()==Global.BALL_WIDTH
-        b.getPosi_y()-this.getPosi_y()==Global.BLOCK_WIDTH
-        this.getPosi_x()-b.getPosi_x()==Global.BALL_WIDTH
-        b.getPosi_x()-this.getPosi_x()==Global.BLOCK_WIDTH
-        if(Math.abs(b.getPosi_x()-this.getPosi_x()) == 25 || Math.abs(b.getPosi_y() - this.getPosi_y()) == 25) {
+    public void minusNum(Ball b) { // "this" is block // include ball rebounding
+      double x0 = b.getPosi_x() + Global.BALL_WIDTH / 2; // ball
+        double y0 = b.getPosi_y() + Global.BALL_WIDTH / 2;
+        double x1 = this.getPosi_x() + Global.BLOCK_WIDTH / 2; // block
+        double y1 = this.getPosi_y() + Global.BLOCK_WIDTH / 2;
+        if (this.pythagorean(Math.abs(x0 - x1) - Global.BLOCK_WIDTH / 2,
+                Math.abs(y0 - y1) - Global.BLOCK_WIDTH / 2) <= Global.BALL_WIDTH / 2
+                && Math.abs(x0 - x1) > (Global.BALL_WIDTH + Global.BLOCK_WIDTH) / 2
+                && Math.abs(y0 - y1) > (Global.BALL_WIDTH + Global.BLOCK_WIDTH) / 2) {
             this.num--;
+            b.revertAtVertex(this); // this is a condition has friction
+        } else if (Math.abs(x0 - x1) <= (Global.BALL_WIDTH + Global.BLOCK_WIDTH) / 2 + Block.ERROR
+                && Math.abs(y0 - y1) < (Global.BALL_WIDTH + Global.BLOCK_WIDTH) / 2) {
+            this.num--;
+            b.revertY();
+        } else if (Math.abs(y0 - y1) <= (Global.BALL_WIDTH + Global.BLOCK_WIDTH) / 2 + Block.ERROR
+                && Math.abs(x0 - x1) < (Global.BALL_WIDTH + Global.BLOCK_WIDTH) / 2) {
+            this.num--;
+            b.revertX();
         }
     }
 }

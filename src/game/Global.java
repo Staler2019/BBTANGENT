@@ -7,7 +7,7 @@ package game;
 
 public class Global {
 
-    public static int level = 1;
+    public static int level = 0;
     public static int difficulty = 1;
     public static int num = 1; // TODO: isn't implemented, use as the num as level'
     public final static double BLOCK_WIDTH = 50;

@@ -66,6 +66,12 @@
 8. decide use ImageView rather than drawing the ball
 9. add class ControlMenuSceneController.java and ControllerMenuScene.fxml
 
+## v1.0.6
+
+2020/06/09 ~ 2020/06/10 2:07
+
+1. make collision for class Ball and Block(handle in Block's son and implement in Ball)
+
 ## v1.1.0 finish declarations of members and member functions
 
 ## v1.2.0 finish assets
