@@ -51,7 +51,7 @@ public class BBTANGENTController extends Application implements Initializable {
     public static void main(String[] args) {
         // readPlayHistory();
         try {
-            File playerData = new File("data\\playerData.txt");
+            File playerData = new File("playerData.txt");
             // check if created
             if (playerData.createNewFile()) {
                 System.out.println("File created: " + playerData.getName());

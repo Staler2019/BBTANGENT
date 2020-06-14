@@ -29,6 +29,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -51,6 +52,8 @@ public class GameController implements Initializable {
     private LinkedList<Ball> _balls = new LinkedList<Ball>();
     private LinkedList<Block> _blocks = new LinkedList<Block>();
 
+    private Line shootLine;
+
     @FXML
     Pane _field;
     @FXML
@@ -72,6 +75,9 @@ public class GameController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        shootLine = new Line();
+        _field.getChildren().add(shootLine);
+        shootLine.setVisible(false);
         Global.level = 0;
         _level.setText("Level 1");
         _ball.setLayoutX(188);
@@ -182,6 +188,7 @@ public class GameController implements Initializable {
         // System.out.println("work in shoot");
 
         // shoot
+        shootLine.setVisible(false);
         _ball.setVisible(false);
         firstBall = true;
         for (int i = Global.level; i > 0; --i) {
@@ -230,6 +237,17 @@ public class GameController implements Initializable {
         if (mousePressed = true) {
             mouseX = m.getX();
             mouseY = m.getY();
+
+            shootLine.setStartX(_ball.getLayoutX() + _ball.getFitWidth()/2);
+            shootLine.setStartY(_ball.getLayoutY() + _ball.getFitHeight()/2);
+            shootLine.setEndX(mouseX);
+            shootLine.setEndY(mouseY);
+
+            shootLine.toFront();
+            shootLine.setVisible(true);
+        }
+        else{
+            shootLine.setVisible(false);
         }
     }
 
@@ -265,7 +283,7 @@ public class GameController implements Initializable {
     // ****************************************************************************************************
     private void storePlayData(String playerName) {
         int score = Global.level;
-        File playerData = new File("data\\playerData.txt");
+        File playerData = new File("playerData.txt");
         // delete file
         if (playerData.delete()) {
             // System.out.println("Deleted the file: " + playerData.getName());
@@ -285,7 +303,7 @@ public class GameController implements Initializable {
         }
         // write file
         try {
-            FileWriter dataWriter = new FileWriter("data\\playerData.txt");
+            FileWriter dataWriter = new FileWriter("playerData.txt");
             dataWriter.write("highestScorePlayer: " + playerName + "\n");
             dataWriter.write("highestScore: " + score);
             Global.storeHSName(playerName);
