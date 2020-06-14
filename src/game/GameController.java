@@ -16,7 +16,6 @@ import java.util.ResourceBundle;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -93,17 +92,17 @@ public class GameController implements Initializable {
                 } else if (x > 337) {
                     x = 337;
                 }
-                if (y > 748) {
-                    y = 748;
+                if (y > 747) {
+                    y = 747;
                 }
                 _mouse.setLayoutX(x);
                 _mouse.setLayoutY(y);
             }
 
             // block moving
+            ArrayList<Block> tBlocks = new ArrayList<Block>(_blocks);
             if (blockMovingCount < 5) {
                 double tmpBottom = 0;
-                ArrayList<Block> tBlocks = new ArrayList<Block>(_blocks);
                 for (var b : tBlocks) {
                     tmpBottom = Math.max(tmpBottom, b.getPosi_y());
                     // System.out.println(" tmpBottom:" + tmpBottom);
@@ -122,7 +121,7 @@ public class GameController implements Initializable {
             // ball moving
             ArrayList<Ball> tBalls = new ArrayList<Ball>(_balls); // TODO: PUT THIS IN TIMELINE SO THAT IT CAN BE SHOW
                                                                   // UP
-            for(byte i = times; i > 0; --i) {
+            for (byte i = times; i > 0; --i) {
                 for (var b : tBalls) {
                     // System.out.println("run ball");
                     // System.out.println("Before ball.posi_x:" + b.getPosi_x() + " ball.posi_y:" +
@@ -130,6 +129,13 @@ public class GameController implements Initializable {
                     b.movePosi(SPEED * b.getDirX(), SPEED * b.getDirY());
                     // System.out.println("After ball.posi_x:" + b.getPosi_x() + " ball.posi_y:" +
                     // b.getPosi_y());
+                    for (var bl : tBlocks) {
+                        bl.minusNum(b);
+                        if (bl.getNum() == 0) {
+                            _field.getChildren().remove(bl.getBTN());
+                            _blocks.remove(bl);
+                        }
+                    }
                     if (b.getPosi_x() > 328 || b.getPosi_x() < 49) {
                         b.revertX();
                     }
@@ -233,13 +239,13 @@ public class GameController implements Initializable {
             // System.out.println("Mouse released on Pane");
             mouseX = m.getX();
             mouseY = m.getY();
-            if (m.getY() >= 748) {
+            if (m.getY() > 747) {
 
             } else {
                 mousePressing = false;
                 mousePressed = false;
                 _mouse.setVisible(false);
-                // // System.out.println("X:" + mouseX + " Y:" + mouseY);
+                // System.out.println("X:" + mouseX + " Y:" + mouseY);
                 shoot();
             }
         }
@@ -247,17 +253,17 @@ public class GameController implements Initializable {
 
     @FXML
     public void onMouseTimesPressed() {
-        if(times == 1) {
+        if (times == 1) {
             times = 5;
             _speed.setText(">> 1");
-        }
-        else{ // times == 5
+        } else { // times == 5
             times = 1;
             _speed.setText(">> 5");
         }
     }
+
     // ****************************************************************************************************
-    private static void storePlayData(String playerName) {
+    private void storePlayData(String playerName) {
         int score = Global.level;
         File playerData = new File("data\\playerData.txt");
         // delete file
@@ -320,7 +326,7 @@ public class GameController implements Initializable {
         }
     }
 
-    static void endGame() {
+    private void endGame() {
         Global.level--;
         if (Global.level > Global.getHS()) {
             // Parent name = FXMLLoader.load(getClass().getResource("NameInputScene.fxml"));
@@ -352,7 +358,7 @@ public class GameController implements Initializable {
                 String playerName = "#no_name#";
                 if (e.getCode() == KeyCode.ENTER) {
                     String tmp = nameField.getText();
-                    System.out.println(tmp.length());
+                    // System.out.println(tmp.length());
                     if (!tmp.equals("")) {
                         playerName = tmp;
                     }
@@ -366,7 +372,7 @@ public class GameController implements Initializable {
             nameBTN.setOnAction(e -> {
                 String playerName = "#no_name#";
                 String tmp = nameField.getText();
-                System.out.println(tmp.length());
+                // System.out.println(tmp.length());
                 if (!tmp.equals("")) {
                     playerName = tmp;
                 }
@@ -381,7 +387,7 @@ public class GameController implements Initializable {
         }
     }
 
-    private static void openEndPane(Boolean win) {
+    private void openEndPane(Boolean win) {
         // ConclusionScene.fxml
         Pane endPane = new Pane();
         Label message = new Label();
@@ -410,9 +416,16 @@ public class GameController implements Initializable {
         endStage.show();
 
         turnMenu.setOnAction(e -> {
-            BBTANGENTController.startScene.getRoot().requestFocus();
-            BBTANGENTController.currStage.setScene(BBTANGENTController.startScene);
-            endStage.close();
+            try {
+                Parent root = FXMLLoader.load(getClass().getResource("StartScene.fxml"));
+                Scene startScene = new Scene(root);
+
+                // BBTANGENTController.startScene.getRoot().requestFocus();
+                BBTANGENTController.currStage.setScene(startScene);
+                endStage.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         });
     }
 

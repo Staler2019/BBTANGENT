@@ -1,2 +1,2 @@
-highestScorePlayer: aaaaa
-highestScore: 13
+highestScorePlayer: 我是誰
+highestScore: 61

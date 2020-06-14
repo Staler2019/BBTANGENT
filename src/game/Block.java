@@ -60,4 +60,8 @@ public abstract class Block {   // blocks: rectangle|| doing, triangle|| plainin
         this.movePosi_x(x);
         this.movePosi_y(y);
     }
+
+    public Button getBTN() {
+        return this.button;
+    }
 }

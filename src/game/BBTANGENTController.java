@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 
 public class BBTANGENTController extends Application implements Initializable {
     public static Stage currStage;
-    public static Scene startScene;
+    public Scene startScene;
 
     @FXML
     private AnchorPane _start_pane;
@@ -81,6 +81,7 @@ public class BBTANGENTController extends Application implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+
 		String scoreText = "Highest: ";
         int scoreTextLonger = 0;
         if(Global.getHSName().equals("")){
@@ -97,7 +98,7 @@ public class BBTANGENTController extends Application implements Initializable {
             _scoreboard.setVisible(true);
             _score_pane.setVisible(true);
         }
-	}
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -132,8 +133,6 @@ public class BBTANGENTController extends Application implements Initializable {
             Scene gameScene = new Scene(game);
             gameScene.getRoot().requestFocus();
             BBTANGENTController.currStage.setScene(gameScene);
-        } else if (k.getCode() == KeyCode.F2) {
-            GameController.endGame();
         }
     }
 
