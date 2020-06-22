@@ -30,11 +30,6 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="_suggestion" layoutX="62.0" layoutY="537.0" text="Drag your mouse or &#10;use WSAD to move your shooting spot" textAlignment="CENTER">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
       <Button fx:id="_square" cancelButton="true" layoutX="302.0" layoutY="696.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: Red; -fx-border-color: Black;" text="2" />
       <Button fx:id="_speed" layoutX="357.0" layoutY="774.0" mnemonicParsing="false" onMouseClicked="#onMouseTimesPressed" text="&gt;&gt; 5" />
       <ImageView fx:id="_mouse" fitHeight="20.0" fitWidth="20.0" layoutX="337.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true">
@@ -42,5 +37,10 @@
             <Image url="@../../assets/images/point.png" />
          </image>
       </ImageView>
+      <Label fx:id="_suggestion" layoutX="114.0" layoutY="537.0" text="Drag your mouse to start" textAlignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

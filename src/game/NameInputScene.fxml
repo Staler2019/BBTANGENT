@@ -6,10 +6,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="game.GameController">
    <children>
-      <Label layoutX="67.0" layoutY="28.0" text="Best Score: 1">
+      <Label layoutX="61.0" layoutY="29.0" text="Best Score: 47">
          <font>
             <Font size="24.0" />
          </font>

@@ -91,8 +91,8 @@ public class BBTANGENTController extends Application implements Initializable {
         else {
             scoreText += String.valueOf(Global.getHS()) + ", " + Global.getHSName();
             scoreTextLonger = scoreText.length() - 20;
-            _score_pane.setLayoutX(102 - 5 * scoreTextLonger);
-            _score_pane.setPrefWidth(195 + 10 * scoreTextLonger);
+            //_score_pane.setLayoutX(102 - 5 * scoreTextLonger);
+            //_score_pane.setPrefWidth(195 + 10 * scoreTextLonger);
             _scoreboard.setLayoutX(113 - 5 * scoreTextLonger);
             _scoreboard.setText(scoreText);
             _scoreboard.setVisible(true);

@@ -240,8 +240,18 @@ public class GameController implements Initializable {
 
             shootLine.setStartX(_ball.getLayoutX() + _ball.getFitWidth()/2);
             shootLine.setStartY(_ball.getLayoutY() + _ball.getFitHeight()/2);
-            shootLine.setEndX(mouseX);
-            shootLine.setEndY(mouseY);
+            double x = mouseX - _mouse.getFitWidth() / 2;
+            double y = mouseY - _mouse.getFitHeight() / 2;
+            if (x < 49) {
+                x = 49;
+            } else if (x > 337) {
+                x = 337;
+            }
+            if (y > 747) {
+                y = 747;
+            }
+            shootLine.setEndX(x + _mouse.getFitWidth() / 2);
+            shootLine.setEndY(y + _mouse.getFitHeight() / 2);
 
             shootLine.toFront();
             shootLine.setVisible(true);
@@ -354,9 +364,11 @@ public class GameController implements Initializable {
             TextField nameField = new TextField();
             Button nameBTN = new Button("Submit");
 
-            scoreLabel.setLayoutX(67.5 - ((int) (Global.level / 10)) * 6.5);
+            scoreLabel.setLayoutX(67.5 - ((int) (Math.log(Global.level) / Math.log(10))) * 6.5);
             scoreLabel.setLayoutY(34);
             scoreLabel.setFont(Font.font(24));
+            scoreLabel.setText("Best Score: " + String.valueOf(Global.level));
+            scoreLabel.setVisible(true);
             nameField.setPromptText("Please Enter Your Name");
             nameField.setLayoutX(61);
             nameField.setLayoutY(85);
@@ -421,6 +433,7 @@ public class GameController implements Initializable {
             message.setLayoutX(88);
             message.setLayoutY(43);
         }
+        message.setVisible(true);
         turnMenu.setLayoutX(89);
         turnMenu.setLayoutY(101);
 
