@@ -47,9 +47,7 @@ public class BBTANGENTController extends Application implements Initializable {
 
     // @FXML private Hyperlink _info_hyper;
 
-
-    public static void main(String[] args) {
-        // readPlayHistory();
+    static void readPlayerData() {
         try {
             File playerData = new File("playerData.txt");
             // check if created
@@ -74,10 +72,13 @@ public class BBTANGENTController extends Application implements Initializable {
             System.out.println("The file is empty.");
             n.printStackTrace();
         }
+    }
 
 
+    public static void main(String[] args) {
         launch(args);
     }
+
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
