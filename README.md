@@ -1,13 +1,8 @@
-# 計算機概論 期末專題 BBTANGENT
+# NCU Introduction to Computer Science Ⅱ Final Project BBTANGENT
 
 ## Content
 
-參考 111% 公司出品的「BBTAN」，重製一個不包含功能球的致敬作品。前期只有打算製作方格下降的類型。
-
-## Author
-
-name: 楊佳峻
-class: B
+In reference to BBTAN by 111%, I'm trying to remake one.
 
 ## Framework
 
@@ -35,3 +30,8 @@ class: B
 ## Sources
 
 1. pause icon(simpleicon.com)
+
+## Environments
+
+1. javaFX_14
+2. java_13.01
